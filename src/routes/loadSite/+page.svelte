@@ -26,7 +26,7 @@
 >
 
 {#if siteString != ''}
-	<div class="bg-light p-3 rounded">
+	<div class="text-dark p-3 border rounded">
 		{@html siteString}
 	</div>
 {/if}
