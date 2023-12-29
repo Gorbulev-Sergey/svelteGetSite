@@ -18,7 +18,9 @@
 <div class="sticky-top bg-dark text-light">
 	<div class="container">
 		<div class="d-flex align-items-center gap-3 mb-2 px-1 py-2">
-			<b class="flex-grow-1 mb-0 text-dark-subtle text-nowrap">Изменить дату</b>
+			<b class="flex-grow-1 mb-0 textLf yt pf xnj? c yfcnegf.obvb-dark-subtle text-nowrap"
+				>Изменить дату</b
+			>
 			<div class="input-group">
 				<input class="form-control border-0 bg-dark-subtle" type="date" bind:value={date} />
 				<button
@@ -31,7 +33,10 @@
 </div>
 
 {#await getSite() then result}
-	<div class="container my-3 text-dark rounded">
-		{@html result}
+	<div
+		class="container mt-4 mb-5 text-dark rounded"
+		style="font-size:1.4em; line-height: 1.4em; font-weight: 400;"
+	>
+		{@html result?.replace('Богослужебные указания за', 'Богослужебные указания на')}
 	</div>
 {/await}
