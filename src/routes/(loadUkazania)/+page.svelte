@@ -28,7 +28,7 @@
 <div class="sticky-top bg-dark text-light">
 	<div class="container">
 		<div class="d-flex align-items-center gap-3 mb-2 px-1 py-2">
-			<b class="flex-grow-1 mb-0 text-dark-subtle text-nowrap">Изменить дату</b>
+			<b class="flex-grow-1 mb-0 text-dark-subtle text-nowrap">Выбрать дату:</b>
 			<div class="input-group">
 				<input class="form-control border-0 bg-dark-subtle" type="date" bind:value={date} />
 				<a
