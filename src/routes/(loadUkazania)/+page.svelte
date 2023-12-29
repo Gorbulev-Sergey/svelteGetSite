@@ -57,7 +57,7 @@
 {#await getSite() then result}
 	<div
 		class="container mt-4 mb-5 text-dark rounded"
-		style="font-size:1.4em; line-height: 1.4em; font-weight: 400;"
+		style="font-size:1.2em; line-height: 1.4em; font-weight: 400;"
 	>
 		{@html result?.replace('Богослужебные указания за', 'Богослужебные указания на')}
 	</div>
