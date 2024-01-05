@@ -132,7 +132,7 @@
 
 <style>
 	:global(.swiper-slide) {
-		font-size: 1.15em;
+		font-size: 1.2em;
 		line-height: 1.4em;
 		font-weight: 400;
 	}
