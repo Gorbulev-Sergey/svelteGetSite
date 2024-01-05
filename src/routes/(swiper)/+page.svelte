@@ -6,7 +6,10 @@
 
 	let sw: Swiper;
 	let slide = async (date: string) =>
-		`<div class="swiper-slide px-4 py-3">${await getSite(url(date))}</div>`;
+		`<div class="swiper-slide px-4 py-3">${(await getSite(url(date)))?.replace(
+			'Богослужебные указания за',
+			'Богослужебные указания на'
+		)}</div>`;
 
 	let dates: string[];
 	let firstDate: string, lastDate: string;
@@ -61,6 +64,7 @@
 
 <svelte:head>
 	<title>Богослужебные указания</title>
+	<meta name="description" content={`Богослужебные указания на ${dateNow}`} />
 </svelte:head>
 
 <div class="sticky-top bg-success-subtle text-dark">
@@ -75,20 +79,20 @@
 				<a
 					href="/"
 					title="Предыдущий день"
-					class="btn btn-light"
+					class="btn btn-light border-0"
 					on:click={() => (dateNow = prevDate(dateNow))}><i class="fa-solid fa-arrow-left"></i></a
 				>
 				<input class="form-control border-0 bg-light" type="date" bind:value={dateNow} />
 				<a
 					href="/"
 					title="Следующий день"
-					class="btn btn-light"
+					class="btn btn-light border-0"
 					on:click={() => (dateNow = nextDate(dateNow))}><i class="fa-solid fa-arrow-right"></i></a
 				>
 				<a
 					href="/"
 					title="Сегодня"
-					class="btn btn-light"
+					class="btn btn-light border-0"
 					on:click={() => (dateNow = new Date().toISOString().slice(0, 10))}>Сегодня</a
 				>
 			</div>
@@ -96,6 +100,14 @@
 	</div>
 </div>
 
-<div class="container swiper rounded-3 mt-1 bg-light text-dark">
+<div class="container swiper rounded-3 mt-0 mb-0 mb-md-5 bg-light text-dark">
 	<div class="swiper-wrapper"></div>
 </div>
+
+<style>
+	:global(.swiper-slide) {
+		font-size: 1.15em;
+		line-height: 1.4em;
+		font-weight: 400;
+	}
+</style>
