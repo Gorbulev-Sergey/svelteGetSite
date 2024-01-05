@@ -6,7 +6,7 @@
 
 	let sw: Swiper;
 	let slide = async (date: string) =>
-		`<div class="swiper-slide px-4 py-3">${(await getSite(url(date)))?.replace(
+		`<div class="swiper-slide px-2 px-md-4 py-1 py-md-3">${(await getSite(url(date)))?.replace(
 			'Богослужебные указания за',
 			'Богослужебные указания на'
 		)}</div>`;
@@ -94,7 +94,12 @@
 					class="form-control border-0 bg-light"
 					type="date"
 					bind:value={dateNow}
-					on:input={() => {
+					on:change={async () => {
+						do {
+							dates = [prevDate(new Date(dates[0]).toISOString().slice(0, 10)), ...dates];
+							sw.prependSlide(await slide(dates[0]));
+						} while (new Date(dateNow).getDate() <= new Date(dates[0]).getDate());
+						console.log(dates);
 						sw.slideTo(dates.indexOf(dateNow));
 					}}
 				/>
@@ -121,7 +126,7 @@
 	</div>
 </div>
 
-<div class="container swiper rounded-3 mt-0 mb-0 mb-md-5 bg-light text-dark">
+<div class="container swiper rounded-3 mt-1 mb-0 mb-md-5 bg-light text-dark">
 	<div class="swiper-wrapper"></div>
 </div>
 
