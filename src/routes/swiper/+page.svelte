@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Swiper from 'swiper';
+	import { Manipulation } from 'swiper/modules';
 	import 'swiper/css';
 
 	let sw: Swiper;
+	let slide = async (date: string) =>
+		`<div class="swiper-slide px-4 py-3">${await getSite(url(date))}</div>`;
 
 	let date: string = new Date().toISOString().slice(0, 10);
-	$: url = (dateMy: string) => `http://www.patriarchia.ru/bu/${dateMy}/print.html`;
+	$: url = (date: string) => `http://www.patriarchia.ru/bu/${date}/print.html`;
 	$: prevDate = () => {
 		let date1 = new Date(date);
 		date1.setTime(date1.getTime() - 24 * 60 * 60 * 1000);
@@ -27,32 +30,31 @@
 			?.innerHTML;
 	};
 
-	onMount(() => {
+	onMount(async () => {
 		sw = new Swiper('.swiper', {
-			initialSlide: 1
+			modules: [Manipulation],
+			autoHeight: true
 		});
-		sw.slides.length = 3;
-		sw.on('slideChange', (e) => {
-			if (e.activeIndex == 0) {
-				//date = prevDate();
-			} else if (e.activeIndex == 2) {
-				//date = nextDate();
-				console.log(sw.slides.length);
-				sw.addSlide(4, '<div class="swiper-slide">Slide 10"</div>');
+		sw.appendSlide(await slide(prevDate()));
+		sw.appendSlide(await slide(date));
+		sw.appendSlide(await slide(nextDate()));
+		sw.slideTo(1);
+		sw.on('slideChange', async (e) => {
+			if (sw.activeIndex == 0) {
+				sw.prependSlide(await slide(date));
+			} else if (sw.activeIndex == sw.slides.length - 1) {
+				sw.appendSlide(await slide(date));
 			}
 		});
 	});
 </script>
 
-<div class="container swiper rounded-3 mt-3 bg-dark text-light">
-	<div class="swiper-wrapper">
-		<!-- Slides -->
-		{#each new Array(sw?.slides.length) as item, i}
-			<div class="swiper-slide d-flex flex-column gap-3 p-3">
-				{#await getSite(i < 1 ? url(prevDate()) : i > 1 ? url(nextDate()) : url(date)) then result}
-					{@html result}
-				{/await}
-			</div>
-		{/each}
-	</div>
+<div class="container swiper rounded-3 mt-3 bg-light text-dark">
+	<div class="swiper-wrapper"></div>
 </div>
+
+<style>
+	.swiper {
+		min-height: 90vh;
+	}
+</style>
