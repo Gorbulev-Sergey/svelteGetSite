@@ -129,7 +129,7 @@
 	</div>
 </div>
 
-<div class="container swiper rounded-3 mt-1 mb-0 mb-md-5 pt-2 bg-light text-dark">
+<div class="container swiper rounded-3 mt-1 mb-0 mb-md-5 pt-3 bg-light text-dark">
 	<div class="swiper-wrapper"></div>
 </div>
 
