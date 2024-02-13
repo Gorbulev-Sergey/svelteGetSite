@@ -129,8 +129,8 @@
 	</div>
 </div>
 
-<div class="container">
-	<div class="swiper rounded-3 mt-1 mb-0 mb-md-5 pt-3 bg-light text-dark">
+<div class="container rounded-3 px-0 bg-light text-dark mt-1 mb-0 mb-md-5 pt-3">
+	<div class="swiper">
 		<div class="swiper-wrapper"></div>
 	</div>
 </div>
