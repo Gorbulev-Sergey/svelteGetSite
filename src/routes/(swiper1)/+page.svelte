@@ -136,7 +136,7 @@
 <div
 	class="container rounded-3 px-0 {swiper_dark
 		? 'bg-dark text-light'
-		: 'bg-light text-dark'}  mt-1 mb-0 mb-md-5 pt-3 px-1 border-dark"
+		: 'bg-light text-dark'}  mt-1 mb-0 mb-md-5 pt-3 px-2 border-dark"
 >
 	<div class="swiper">
 		<div class="swiper-wrapper"></div>
