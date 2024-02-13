@@ -3,6 +3,7 @@
 	import Swiper from 'swiper';
 	import { Manipulation } from 'swiper/modules';
 	import 'swiper/css';
+	import { theme } from '$lib/scripts/store';
 
 	let sw: Swiper;
 	let slide = async (date: string) =>
@@ -13,7 +14,6 @@
 
 	let dates: string[] = [];
 	let firstDate: string, lastDate: string;
-	let swiper_dark = false;
 
 	let dateNow: string = new Date().toISOString().slice(0, 10);
 	$: url = (date: string) => `http://www.patriarchia.ru/bu/${date}/print.html`;
@@ -125,8 +125,12 @@
 						sw.slideTo(dates.indexOf(dateNow));
 					}}>Сегодня</a
 				>
-				<button class="btn btn-light text-dark" on:click={() => (swiper_dark = !swiper_dark)}
-					><i class="fa-regular fa-sun" /></button
+				<button
+					class="btn btn-light text-dark"
+					on:click={() => {
+						$theme == 'light' ? ($theme = 'dark') : ($theme = 'light');
+						localStorage.setItem('theme', $theme);
+					}}><i class="fa-regular fa-sun" /></button
 				>
 			</div>
 		</div>
@@ -134,7 +138,7 @@
 </div>
 
 <div
-	class="container rounded-3 px-0 {swiper_dark
+	class="container rounded-3 px-0 {$theme == 'light'
 		? 'bg-dark text-light'
 		: 'bg-light text-dark'}  mt-1 mb-0 mb-md-5 pt-3 px-2 border-dark"
 >
