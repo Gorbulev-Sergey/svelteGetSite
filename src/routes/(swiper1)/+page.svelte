@@ -91,7 +91,7 @@
 					}}><i class="fa-solid fa-arrow-left"></i></a
 				>
 				<input
-					class="form-control border-0 bg-light"
+					class="form-control border-0 bg-light h-100"
 					type="date"
 					bind:value={dateNow}
 					on:change={async () => {
@@ -129,9 +129,7 @@
 	</div>
 </div>
 
-<div
-	class="container rounded-3 px-0 bg-light text-dark mt-1 mb-0 mb-md-5 pt-3 px-1 border-1 border-dark"
->
+<div class="container rounded-3 px-0 bg-light text-dark mt-1 mb-0 mb-md-5 pt-3 px-1 border-dark">
 	<div class="swiper">
 		<div class="swiper-wrapper"></div>
 	</div>
