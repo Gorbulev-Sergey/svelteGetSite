@@ -72,7 +72,7 @@
 	<meta name="description" content={`Богослужебные указания на ${dateNow}`} />
 </svelte:head>
 
-<div class="sticky-top bg-success-subtle text-dark">
+<div class="sticky-top bg-dark text-light">
 	<div class="container">
 		<div
 			class="d-flex flex-wrap align-items-stretch justify-content-center gap-1 px-1 py-2 py-md-3"
@@ -95,12 +95,15 @@
 					type="date"
 					bind:value={dateNow}
 					on:change={async () => {
-						do {
-							dates = [prevDate(new Date(dates[0]).toISOString().slice(0, 10)), ...dates];
-							sw.prependSlide(await slide(dates[0]));
-						} while (new Date(dateNow).getDate() <= new Date(dates[0]).getDate());
-						console.log(dates);
-						sw.slideTo(dates.indexOf(dateNow));
+						if (new Date(dateNow).getTime() < new Date(firstDate).getTime()) {
+							do {
+								dates = [prevDate(dates[0]), ...dates];
+								sw.prependSlide(await slide(dates[0]));
+								firstDate = dates[0];
+							} while (new Date(dateNow).getTime() <= new Date(firstDate).getTime());
+							sw.slideTo(dates.indexOf(dateNow));
+							console.log(dates);
+						}
 					}}
 				/>
 				<a
@@ -126,7 +129,7 @@
 	</div>
 </div>
 
-<div class="container swiper rounded-3 mt-1 mb-0 mb-md-5 bg-light text-dark">
+<div class="container swiper rounded-3 mt-1 mb-0 mb-md-5 pt-2 bg-light text-dark">
 	<div class="swiper-wrapper"></div>
 </div>
 
