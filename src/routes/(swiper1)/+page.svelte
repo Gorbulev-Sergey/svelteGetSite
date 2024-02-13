@@ -13,6 +13,7 @@
 
 	let dates: string[] = [];
 	let firstDate: string, lastDate: string;
+	let swiper_dark = false;
 
 	let dateNow: string = new Date().toISOString().slice(0, 10);
 	$: url = (date: string) => `http://www.patriarchia.ru/bu/${date}/print.html`;
@@ -124,12 +125,19 @@
 						sw.slideTo(dates.indexOf(dateNow));
 					}}>Сегодня</a
 				>
+				<button class="btn btn-light text-dark" on:click={() => (swiper_dark = !swiper_dark)}
+					><i class="fa-regular fa-sun" /></button
+				>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="container rounded-3 px-0 bg-light text-dark mt-1 mb-0 mb-md-5 pt-3 px-1 border-dark">
+<div
+	class="container rounded-3 px-0 {swiper_dark
+		? 'bg-dark text-light'
+		: 'bg-light text-dark'}  mt-1 mb-0 mb-md-5 pt-3 px-1 border-dark"
+>
 	<div class="swiper">
 		<div class="swiper-wrapper"></div>
 	</div>
