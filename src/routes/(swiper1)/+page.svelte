@@ -15,7 +15,7 @@
 	let dates: string[] = [];
 	let firstDate: string, lastDate: string;
 
-	let dateNow: string = new Date().toISOString().slice(0, 10);
+	export let dateNow: string = new Date().toISOString().slice(0, 10);
 	$: url = (date: string) => `http://www.patriarchia.ru/bu/${date}/print.html`;
 	$: prevDate = (date: string) => {
 		let date1 = new Date(date);
