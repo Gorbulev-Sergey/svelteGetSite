@@ -2,4 +2,4 @@
 	export let message = 'Привет';
 </script>
 
-<h1>{message}</h1>
+<h1 class="text-light m-5">{message}</h1>
