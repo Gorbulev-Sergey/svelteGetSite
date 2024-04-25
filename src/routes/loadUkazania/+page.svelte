@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Container from '$lib/Container.svelte';
 
-	let date: string = new Date().toISOString().slice(0, 10);
+	export let date: string = new Date().toISOString().slice(0, 10);
 	$: prevDate = () => {
 		let date1 = new Date(date);
 		date1.setTime(date1.getTime() - 24 * 60 * 60 * 1000);
