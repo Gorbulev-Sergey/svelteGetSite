@@ -20,3 +20,12 @@
 		{@html result?.replace('Богослужебные указания за', '')}
 	</div>
 {/await}
+
+<style>
+	:global(h1:first-of-type) {
+		display: none;
+	}
+	:global(br:first-of-type) {
+		display: none;
+	}
+</style>
