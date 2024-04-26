@@ -18,7 +18,7 @@
 </svelte:head>
 
 {#await getSite() then result}
-	<div class="m-3" style="font-size:1.2em; line-height: 1.4em; font-weight: 400;">
+	<div class="m-3" style="font-size:1.1em; line-height: 1.2em; font-weight: 400;">
 		{@html result?.replace('Богослужебные указания за', 'Богослужебные указания на')}
 	</div>
 {/await}
