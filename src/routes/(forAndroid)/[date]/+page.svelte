@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+
 	export let date: string = new Date().toISOString().slice(0, 10);
-	$: url = `http://www.patriarchia.ru/bu/${date}/print.html`;
+	$: url = `http://www.patriarchia.ru/bu/${$page.params.date ?? date}/print.html`;
 	$: getSite = async () => {
 		let result = await fetch('/api/url', {
 			method: 'POST',
