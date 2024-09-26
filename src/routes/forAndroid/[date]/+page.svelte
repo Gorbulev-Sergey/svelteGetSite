@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import Container from '$lib/Container.svelte';
 
 	export let date: string = new Date().toISOString().slice(0, 10);
 	$: url = `http://www.patriarchia.ru/bu/${$page.params.date ?? date}/print.html`;
@@ -19,9 +20,11 @@
 </svelte:head>
 
 {#await getSite() then result}
-	<div class="m-3" style="font-size:1.1em; line-height: 1.2em; font-weight: 400;">
-		{@html result}
-	</div>
+	<Container>
+		<div class="bg-white text-dark" style="font-size:1.2em; line-height: 1.4em; font-weight: 400;">
+			{@html result}
+		</div>
+	</Container>
 {/await}
 
 <style>
