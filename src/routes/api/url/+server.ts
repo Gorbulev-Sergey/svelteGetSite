@@ -1,4 +1,4 @@
-export async function POST({ request }) {
+export async function POST({ request, fetch }) {
 	let { url } = await request.json();
 	let result = await fetch(url, {
 		method: 'GET',
