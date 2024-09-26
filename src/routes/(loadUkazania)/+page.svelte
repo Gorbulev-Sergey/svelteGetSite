@@ -27,31 +27,24 @@
 	<title>Богослужебные указания</title>
 </svelte:head>
 
-<div class="sticky-top bg-success-subtle text-dark">
+<div class="sticky-top bg-dark text-light">
 	<div class="container">
 		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-1 py-2 py-md-3">
 			<div class="d-flex align-items-center gap-2 mb-1 mb-md-0">
 				<b class="flex-grow-1 mb-0 text-nowrap">Выбрать дату:</b>
 			</div>
 			<div class="d-flex align-items-center gap-1">
-				<a
-					href="/"
-					title="Предыдущий день"
-					class="btn btn-light"
-					on:click={() => (date = prevDate())}><i class="fa-solid fa-arrow-left"></i></a
+				<button title="Предыдущий день" class="btn btn-light" on:click={() => (date = prevDate())}
+					><i class="fa-solid fa-arrow-left"></i></button
 				>
 				<input class="form-control border-0 bg-light" type="date" bind:value={date} />
-				<a
-					href="/"
-					title="Следующий день"
-					class="btn btn-light"
-					on:click={() => (date = nextDate())}><i class="fa-solid fa-arrow-right"></i></a
+				<button title="Следующий день" class="btn btn-light" on:click={() => (date = nextDate())}
+					><i class="fa-solid fa-arrow-right"></i></button
 				>
-				<a
-					href="/"
+				<button
 					title="Сегодня"
 					class="btn btn-light"
-					on:click={() => (date = new Date().toISOString().slice(0, 10))}>Сегодня</a
+					on:click={() => (date = new Date().toISOString().slice(0, 10))}>Сегодня</button
 				>
 			</div>
 		</div>
@@ -60,7 +53,7 @@
 
 {#await getSite() then result}
 	<Container>
-		<div style="font-size:1.2em; line-height: 1.4em; font-weight: 400;">
+		<div class="bg-white text-dark" style="font-size:1.2em; line-height: 1.4em; font-weight: 400;">
 			{@html result?.replace('Богослужебные указания за', 'Богослужебные указания на')}
 		</div>
 	</Container>
