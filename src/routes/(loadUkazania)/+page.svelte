@@ -45,22 +45,22 @@
 			<div class="flex-grow-1 flex-md-grow-0">
 				{#if isNewStyle}
 					{new Date(date).toLocaleDateString('ru-ru', {
+						weekday: 'short'
+					})}.,
+					{new Date(date).toLocaleDateString('ru-ru', {
 						year: 'numeric',
 						month: 'long',
 						day: 'numeric'
 					})}
-					<!-- {new Date(date).toLocaleDateString('ru-ru', {
-						weekday: 'long'
-					})} -->
 				{:else}
+					{new Date(date).toLocaleDateString('ru-ru', {
+						weekday: 'short'
+					})}.,
 					{new Date(dateOldStyle).toLocaleDateString('ru-ru', {
 						year: 'numeric',
 						month: 'long',
 						day: 'numeric'
 					})}
-					<!-- {new Date(date).toLocaleDateString('ru-ru', {
-						weekday: 'long'
-					})} -->
 				{/if}
 			</div>
 			<button class="btn btn-sm btn-light text-dark" on:click={() => (isNewStyle = !isNewStyle)}>
