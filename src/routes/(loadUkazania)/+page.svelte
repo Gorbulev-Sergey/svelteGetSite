@@ -82,13 +82,13 @@
 		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-2 py-3">
 			<div class="btn-group btn-group-lg">
 				<button title="Назад" class="btn btn-light border-end" on:click={() => (date = prevDate())}>
-					<div class="d-flex align-items-center gap-2">
+					<div class="d-flex align-items-center gap-2 px-4">
 						<i class="fa-solid fa-arrow-left"></i>
 						<!-- <div>Назад</div> -->
 					</div>
 				</button>
 				<input
-					class="form-control form-control-lg border-0 bg-light rounded-0"
+					class="form-control form-control-lg border-0 bg-light bg-opacity-10 rounded-0"
 					type="date"
 					title="Выбрать дату"
 					bind:value={date}
@@ -98,7 +98,7 @@
 					class="btn btn-light border-start"
 					on:click={() => (date = nextDate())}
 				>
-					<div class="d-flex align-items-center gap-2">
+					<div class="d-flex align-items-center gap-2 px-4">
 						<i class="fa-solid fa-arrow-right"></i>
 						<!-- <div>Вперёд</div> -->
 					</div>
