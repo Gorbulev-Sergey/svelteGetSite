@@ -36,7 +36,7 @@
 	<title>Богослужебные указания</title>
 </svelte:head>
 
-<div class="sticky-top w-100 bg-dark-subtle text-dark px-3 py-2 shadow shadow-sm">
+<div class="sticky-top w-100 bg-dark-subtle text-dark p-3 shadow shadow-sm">
 	<div class="d-flex flex-column align-items-start align-items-md-center gap-0">
 		<h4 class="mb-0">Богослужебные указания</h4>
 		<div class="d-flex align-items-center gap-1">
@@ -59,12 +59,8 @@
 					})}
 				{/if}
 			</div>
-			<button
-				class="btn btn-sm btn-light text-dark"
-				style="margin-top: .15em;"
-				on:click={() => (isNewStyle = !isNewStyle)}
-			>
-				<div style="margin-top: -.15em;">
+			<button class="btn btn-sm btn-light text-dark" on:click={() => (isNewStyle = !isNewStyle)}>
+				<div>
 					{isNewStyle ? 'новый стиль' : 'старый стиль'}
 				</div>
 			</button>
@@ -83,7 +79,7 @@
 
 <div class="fixed-bottom w-100 bg-dark-subtle text-light">
 	<div class="container">
-		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-2 py-3">
+		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-2 py-2">
 			<div class="btn-group btn-group-lg">
 				<button title="Назад" class="btn btn-light" on:click={() => (date = prevDate())}>
 					<div class="d-flex align-items-center gap-2">
@@ -91,12 +87,14 @@
 						<div>Назад</div>
 					</div>
 				</button>
+				<div class="bg-dark-subtle" style="min-width: 1px;"></div>
 				<input
-					class="form-control border-0 bg-light bg-opacity-75 rounded-0"
+					class="form-control form-control-lg border-0 bg-light rounded-0"
 					type="date"
 					title="Выбрать дату"
 					bind:value={date}
 				/>
+				<div class="bg-dark-subtle" style="min-width: 1px;"></div>
 				<button title="Вперёд" class="btn btn-light" on:click={() => (date = nextDate())}>
 					<div class="d-flex align-items-center gap-2">
 						<i class="fa-solid fa-arrow-right"></i>
