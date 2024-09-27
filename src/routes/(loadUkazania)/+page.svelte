@@ -82,7 +82,7 @@
 		<div class="d-flex justify-content-between align-items-strech gap-2 px-2 py-3">
 			<button
 				title="Назад"
-				class="btn btn-lg btn-light flex-grow-1"
+				class="btn btn-lg btn-dark text-light flex-grow-1"
 				on:click={() => (date = prevDate())}
 			>
 				<div class="d-flex align-items-center gap-2 px-4">
@@ -98,7 +98,7 @@
 			/>
 			<button
 				title="Вперёд"
-				class="btn btn-lg btn-light flex-grow-1"
+				class="btn btn-lg btn-dark text-light flex-grow-1"
 				on:click={() => (date = nextDate())}
 			>
 				<div class="d-flex align-items-center gap-2 px-4">
