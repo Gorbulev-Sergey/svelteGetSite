@@ -3,7 +3,8 @@ export async function POST({ request, fetch }) {
 	let result = await fetch(url, {
 		method: 'GET',
 		headers: {
-			'Content-Type': 'text/html; charset=utf-8'
+			'Content-Type': 'text/html; charset=utf-8',
+			'Access-Control-Allow-Origin': '*'
 		}
 	});
 	return new Response(await result.text());
