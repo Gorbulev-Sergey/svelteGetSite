@@ -39,8 +39,8 @@
 <div class="sticky-top w-100 bg-dark-subtle text-dark p-3 shadow shadow-sm">
 	<div class="d-flex flex-column align-items-start align-items-md-center gap-0">
 		<h4 class="mb-0">Богослужебные указания</h4>
-		<div class="d-flex align-items-center gap-1">
-			<div>
+		<div class="d-flex align-items-start gap-1 w-100">
+			<div class="flex-grow-1 pt-1">
 				{#if isNewStyle}
 					{new Date(date).toLocaleDateString('ru-ru', {
 						weekday: 'long',
@@ -60,8 +60,8 @@
 				{/if}
 			</div>
 			<button class="btn btn-sm btn-light text-dark" on:click={() => (isNewStyle = !isNewStyle)}>
-				<div>
-					{isNewStyle ? 'новый стиль' : 'старый стиль'}
+				<div class="text-nowrap">
+					{isNewStyle ? 'новый ст.' : 'старый ст.'}
 				</div>
 			</button>
 		</div>
@@ -79,29 +79,29 @@
 
 <div class="fixed-bottom w-100 bg-dark-subtle text-light">
 	<div class="container">
-		<div class="d-flex justify-content-between align-items-strech gap-2 px-2 py-3">
+		<div class="d-flex justify-content-between align-items-center gap-1 px-1 py-3">
 			<button
 				title="Назад"
-				class="btn btn-lg btn-dark text-light flex-grow-1"
+				class="btn btn-lg btn-light text-dark flex-grow-1"
 				on:click={() => (date = prevDate())}
 			>
-				<div class="d-flex align-items-center gap-2 px-4">
+				<div class="d-flex align-items-center gap-2 px-2">
 					<i class="fa-solid fa-arrow-left"></i>
 					<!-- <div>Назад</div> -->
 				</div>
 			</button>
 			<input
-				class="form-control form-control-lg text-center border-0 bg-transparent rounded-0"
+				class="form-control flex-grow-0 text-center border-0 bg-transparent rounded-0"
 				type="date"
 				title="Выбрать дату"
 				bind:value={date}
 			/>
 			<button
 				title="Вперёд"
-				class="btn btn-lg btn-dark text-light flex-grow-1"
+				class="btn btn-lg btn-light text-dark flex-grow-1"
 				on:click={() => (date = nextDate())}
 			>
-				<div class="d-flex align-items-center gap-2 px-4">
+				<div class="d-flex align-items-center gap-2 px-2">
 					<i class="fa-solid fa-arrow-right"></i>
 					<!-- <div>Вперёд</div> -->
 				</div>
