@@ -39,31 +39,33 @@
 <div class="sticky-top w-100 bg-dark-subtle text-dark p-3 shadow shadow-sm">
 	<div class="d-flex flex-column align-items-start align-items-md-center gap-0">
 		<h4 class="mb-0">Богослужебные указания</h4>
-		<div class="d-flex align-items-md-center align-items-start gap-1 w-100">
-			<div class="flex-grow-1 flex-md-grow-0 pt-1">
+		<div
+			class="d-flex align-items-center justify-content-between justify-content-md-center gap-1 w-100"
+		>
+			<div class="flex-grow-1 flex-md-grow-0">
 				{#if isNewStyle}
 					{new Date(date).toLocaleDateString('ru-ru', {
 						year: 'numeric',
 						month: 'long',
 						day: 'numeric'
-					})},
-					{new Date(date).toLocaleDateString('ru-ru', {
-						weekday: 'long'
 					})}
+					<!-- {new Date(date).toLocaleDateString('ru-ru', {
+						weekday: 'long'
+					})} -->
 				{:else}
 					{new Date(dateOldStyle).toLocaleDateString('ru-ru', {
 						year: 'numeric',
 						month: 'long',
 						day: 'numeric'
-					})},
-					{new Date(date).toLocaleDateString('ru-ru', {
-						weekday: 'long'
 					})}
+					<!-- {new Date(date).toLocaleDateString('ru-ru', {
+						weekday: 'long'
+					})} -->
 				{/if}
 			</div>
 			<button class="btn btn-sm btn-light text-dark" on:click={() => (isNewStyle = !isNewStyle)}>
 				<div class="text-nowrap">
-					{isNewStyle ? 'новый ст.' : 'старый ст.'}
+					{isNewStyle ? 'новый стиль' : 'старый стиль'}
 				</div>
 			</button>
 		</div>
