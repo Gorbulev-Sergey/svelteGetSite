@@ -88,22 +88,22 @@
 				<b class="flex-grow-1 mb-0 text-nowrap">Выбрать дату:</b>
 			</div> -->
 			<div class="d-flex align-items-strech gap-2">
-				<button title="Назад" class="btn btn-light" on:click={() => (date = prevDate())}>
-					<div class="d-flex align-items-center gap-1">
+				<button title="Назад" class="btn btn-lg btn-light" on:click={() => (date = prevDate())}>
+					<div class="d-flex align-items-center gap-2">
 						<i class="fa-solid fa-arrow-left"></i>
-						<div style="margin-bottom: .15em;">Назад</div>
+						<div>Назад</div>
 					</div>
 				</button>
 				<input
-					class="form-control border-0 bg-light"
+					class="form-control form-control-lg border-0 bg-light"
 					type="date"
 					title="Выбрать дату"
 					bind:value={date}
 				/>
-				<button title="Вперёд" class="btn btn-light" on:click={() => (date = nextDate())}>
-					<div class="d-flex align-items-center gap-1">
+				<button title="Вперёд" class="btn btn-lg btn-light" on:click={() => (date = nextDate())}>
+					<div class="d-flex align-items-center gap-2">
 						<i class="fa-solid fa-arrow-right"></i>
-						<div style="margin-bottom: .15em;">Вперёд</div>
+						<div>Вперёд</div>
 					</div>
 				</button>
 				<button
