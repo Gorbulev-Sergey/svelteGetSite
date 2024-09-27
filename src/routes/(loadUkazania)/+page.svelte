@@ -36,7 +36,7 @@
 	<title>Богослужебные указания</title>
 </svelte:head>
 
-<div class="sticky-top w-100 bg-dark-subtle text-dark p-3 shadow shadow-sm">
+<div class="sticky-top w-100 bg-dark-subtle text-dark px-3 pt-3 pb-2 shadow shadow-sm">
 	<div class="d-flex flex-column align-items-start align-items-md-center gap-0">
 		<h4 class="mb-0">Богослужебные указания</h4>
 		<div class="d-flex align-items-center gap-1">
@@ -83,11 +83,8 @@
 
 <div class="fixed-bottom w-100 bg-dark-subtle text-light">
 	<div class="container">
-		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-1 py-3">
-			<!-- <div class="d-flex align-items-center gap-2 mb-1 mb-md-0">
-				<b class="flex-grow-1 mb-0 text-nowrap">Выбрать дату:</b>
-			</div> -->
-			<div class=" btn-group">
+		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-1 pt-2 pb-3">
+			<div class="btn-group">
 				<button title="Назад" class="btn btn-light" on:click={() => (date = prevDate())}>
 					<div class="d-flex align-items-center gap-2">
 						<i class="fa-solid fa-arrow-left"></i>
@@ -106,12 +103,6 @@
 						<div>Вперёд</div>
 					</div>
 				</button>
-				<!-- <button
-					hidden
-					title="Сегодня"
-					class="btn btn-light"
-					on:click={() => (date = new Date().toISOString().slice(0, 10))}>Сегодня</button
-				> -->
 			</div>
 		</div>
 	</div>
