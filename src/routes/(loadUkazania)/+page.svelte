@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let date: string = new Date().toISOString().slice(0, 10);
 	$: dateOldStyle = new Date(new Date(date).getTime() - 13 * 24 * 60 * 60 * 1000);
+
 	$: prevDate = () => {
 		let date1 = new Date(date);
 		date1.setTime(date1.getTime() - 24 * 60 * 60 * 1000);
@@ -26,6 +27,8 @@
 		oldTitle.innerHTML = oldTitle?.innerHTML.replace(`${new Date(dateOldStyle).getDate()}. `, '');
 		return dom?.innerHTML;
 	};
+
+	let isNewStyle = true;
 </script>
 
 <svelte:head>
@@ -35,28 +38,42 @@
 <div class="sticky-top w-100 bg-dark-subtle text-dark p-2 p-md-3">
 	<div class="d-flex flex-column align-items-start align-items-md-center gap-0">
 		<h4 class="mb-0">Богослужебные указания</h4>
-		<div>
-			{new Date(date).toLocaleDateString('ru-ru', {
-				weekday: 'long',
-				year: 'numeric',
-				month: 'long',
-				day: 'numeric'
-			})} (новый стиль)
-		</div>
-		<div>
-			{new Date(dateOldStyle).toLocaleDateString('ru-ru', {
-				weekday: 'long',
-				year: 'numeric',
-				month: 'long',
-				day: 'numeric'
-			})} (старый стиль)
+		<div class="d-flex align-items-center gap-1">
+			<div>
+				{#if isNewStyle}
+					{new Date(date).toLocaleDateString('ru-ru', {
+						weekday: 'long',
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					})}
+				{:else}
+					{new Date(date).toLocaleDateString('ru-ru', {
+						weekday: 'long'
+					})},
+					{new Date(dateOldStyle).toLocaleDateString('ru-ru', {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					})}
+				{/if}
+			</div>
+			<button
+				class="btn btn-sm btn-light text-dark"
+				style="margin-top: .15em;"
+				on:click={() => (isNewStyle = !isNewStyle)}
+			>
+				<div style="margin-top: -.15em;">
+					{isNewStyle ? 'новый стиль' : 'старый стиль'}
+				</div>
+			</button>
 		</div>
 	</div>
 </div>
 
 {#await getSite() then result}
 	<div
-		class="bg-white text-dark text-wrap p-2 mb-3 pb-5 p-md-3"
+		class=" text-wrap p-2 mb-3 pb-5 p-md-3"
 		style="font-size:1.2em; line-height: 1.4em; font-weight: 400;"
 	>
 		{@html result?.replace('Богослужебные указания за', 'Богослужебные указания на')}
