@@ -79,7 +79,7 @@
 
 <div class="fixed-bottom w-100 bg-dark-subtle text-light">
 	<div class="container">
-		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-2 py-2">
+		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-2 py-3">
 			<div class="btn-group btn-group-lg">
 				<button title="Назад" class="btn btn-light border-end" on:click={() => (date = prevDate())}>
 					<div class="d-flex align-items-center gap-2">
