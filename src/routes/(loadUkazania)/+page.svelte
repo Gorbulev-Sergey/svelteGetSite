@@ -83,7 +83,7 @@
 
 <div class="fixed-bottom w-100 bg-dark-subtle text-light">
 	<div class="container">
-		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-1 py-3">
+		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-2 py-3">
 			<!-- <div class="d-flex align-items-center gap-2 mb-1 mb-md-0">
 				<b class="flex-grow-1 mb-0 text-nowrap">Выбрать дату:</b>
 			</div> -->
