@@ -36,7 +36,7 @@
 	<title>Богослужебные указания</title>
 </svelte:head>
 
-<div class="sticky-top w-100 bg-dark-subtle text-dark px-3 pt-3 pb-2 shadow shadow-sm">
+<div class="sticky-top w-100 bg-dark-subtle text-dark px-3 py-2 shadow shadow-sm">
 	<div class="d-flex flex-column align-items-start align-items-md-center gap-0">
 		<h4 class="mb-0">Богослужебные указания</h4>
 		<div class="d-flex align-items-center gap-1">
@@ -83,8 +83,8 @@
 
 <div class="fixed-bottom w-100 bg-dark-subtle text-light">
 	<div class="container">
-		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-1 pt-2 pb-3">
-			<div class="btn-group">
+		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-2 py-3">
+			<div class="btn-group btn-group-lg">
 				<button title="Назад" class="btn btn-light" on:click={() => (date = prevDate())}>
 					<div class="d-flex align-items-center gap-2">
 						<i class="fa-solid fa-arrow-left"></i>
@@ -92,7 +92,7 @@
 					</div>
 				</button>
 				<input
-					class="form-control border-0 bg-light bg-opacity-25 rounded-0"
+					class="form-control border-0 bg-light bg-opacity-75 rounded-0"
 					type="date"
 					title="Выбрать дату"
 					bind:value={date}
