@@ -84,7 +84,7 @@
 				<button title="Назад" class="btn btn-light border-end" on:click={() => (date = prevDate())}>
 					<div class="d-flex align-items-center gap-2">
 						<i class="fa-solid fa-arrow-left"></i>
-						<div>Назад</div>
+						<!-- <div>Назад</div> -->
 					</div>
 				</button>
 				<input
@@ -100,7 +100,7 @@
 				>
 					<div class="d-flex align-items-center gap-2">
 						<i class="fa-solid fa-arrow-right"></i>
-						<div>Вперёд</div>
+						<!-- <div>Вперёд</div> -->
 					</div>
 				</button>
 			</div>
