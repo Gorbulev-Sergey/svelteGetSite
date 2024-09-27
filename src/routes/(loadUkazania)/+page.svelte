@@ -12,6 +12,7 @@
 		date1.setTime(date1.getTime() + 24 * 60 * 60 * 1000);
 		return date1.toISOString().slice(0, 10);
 	};
+
 	$: url = `http://www.patriarchia.ru/bu/${date}/print.html`;
 	$: getSite = async () => {
 		let result = await fetch('/api/url', {
@@ -35,7 +36,7 @@
 	<title>Богослужебные указания</title>
 </svelte:head>
 
-<div class="sticky-top w-100 bg-dark-subtle text-dark p-2 p-md-3">
+<div class="sticky-top w-100 bg-dark-subtle text-dark p-3">
 	<div class="d-flex flex-column align-items-start align-items-md-center gap-0">
 		<h4 class="mb-0">Богослужебные указания</h4>
 		<div class="d-flex align-items-center gap-1">
@@ -73,7 +74,7 @@
 
 {#await getSite() then result}
 	<div
-		class=" text-wrap p-2 mb-3 pb-5 p-md-3"
+		class="p-2 mb-3 pb-5 p-md-3 my-text-wrap"
 		style="font-size:1.2em; line-height: 1.4em; font-weight: 400;"
 	>
 		{@html result?.replace('Богослужебные указания за', 'Богослужебные указания на')}
@@ -82,7 +83,7 @@
 
 <div class="fixed-bottom w-100 bg-dark-subtle text-light">
 	<div class="container">
-		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-1 py-2 py-md-3">
+		<div class="d-flex flex-wrap align-items-center justify-content-center gap-1 px-1 py-3">
 			<!-- <div class="d-flex align-items-center gap-2 mb-1 mb-md-0">
 				<b class="flex-grow-1 mb-0 text-nowrap">Выбрать дату:</b>
 			</div> -->
@@ -115,3 +116,9 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.my-text-wrap {
+		overflow-wrap: break-word;
+	}
+</style>
