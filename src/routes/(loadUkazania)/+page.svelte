@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let date: string = new Date().toISOString().slice(0, 10);
+	$: dateNewStyle = new Date(date);
 	$: dateOldStyle = new Date(new Date(date).setDate(new Date(date).getDate() - 13));
 
 	$: prevDate = () => {
@@ -42,19 +43,19 @@
 		>
 			<div class="flex-grow-1 flex-md-grow-0">
 				{#if isNewStyle}
-					{new Date(date).toLocaleDateString('ru-ru', {
+					{dateNewStyle.toLocaleDateString('ru-ru', {
 						weekday: 'short'
 					})}.,
-					{new Date(date).toLocaleDateString('ru-ru', {
+					{dateNewStyle.toLocaleDateString('ru-ru', {
 						year: 'numeric',
 						month: 'long',
 						day: 'numeric'
 					})}
 				{:else}
-					{new Date(date).toLocaleDateString('ru-ru', {
+					{dateNewStyle.toLocaleDateString('ru-ru', {
 						weekday: 'short'
 					})}.,
-					{new Date(dateOldStyle).toLocaleDateString('ru-ru', {
+					{dateOldStyle.toLocaleDateString('ru-ru', {
 						year: 'numeric',
 						month: 'long',
 						day: 'numeric'
