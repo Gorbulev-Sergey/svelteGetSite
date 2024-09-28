@@ -1,15 +1,13 @@
 <script lang="ts">
 	export let date: string = new Date().toISOString().slice(0, 10);
-	$: dateOldStyle = new Date(new Date(date).getTime() - 13 * 24 * 60 * 60 * 1000);
+	$: dateOldStyle = new Date(new Date(date).setDate(new Date(date).getDate() - 13));
 
 	$: prevDate = () => {
-		let date1 = new Date(date);
-		date1.setTime(date1.getTime() - 24 * 60 * 60 * 1000);
+		let date1 = new Date(new Date(date).setDate(new Date(date).getDate() - 1));
 		return date1.toISOString().slice(0, 10);
 	};
 	$: nextDate = () => {
-		let date1 = new Date(date);
-		date1.setTime(date1.getTime() + 24 * 60 * 60 * 1000);
+		let date1 = new Date(new Date(date).setDate(new Date(date).getDate() + 1));
 		return date1.toISOString().slice(0, 10);
 	};
 
@@ -90,7 +88,9 @@
 			<button
 				title="Назад"
 				class="btn btn-lg btn-light my-primary-light-bg text-light border-0 flex-grow-1"
-				on:click={() => (date = prevDate())}
+				on:click={() => {
+					date = prevDate();
+				}}
 			>
 				<div class="d-flex align-items-center gap-2 px-3">
 					<i class="fa-solid fa-arrow-left"></i>
