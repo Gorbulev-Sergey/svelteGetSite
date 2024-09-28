@@ -85,7 +85,7 @@
 
 <div class="fixed-bottom w-100 my-primary-bg">
 	<div class="container">
-		<div class="d-flex justify-content-between align-items-center gap-1 px-1 py-3">
+		<div class="d-flex justify-content-between align-items-center gap-2 px-1 py-3">
 			<button
 				title="Назад"
 				class="btn btn-lg btn-light my-primary-light-bg text-light border-0 flex-grow-1"
@@ -99,7 +99,7 @@
 				</div>
 			</button>
 			<input
-				class="form-control flex-grow-0 text-center border-0 bg-transparent text-light rounded-0"
+				class="form-control flex-grow-0 text-center border-0 bg-transparent text-light"
 				type="date"
 				title="Выбрать дату"
 				bind:value={date}
