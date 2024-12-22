@@ -13,7 +13,7 @@
 	});
 
 	let url = $derived(`http://www.patriarchia.ru/bu/${date}/print.html`);
-	let getSite = async () => {
+	async function getSite() {
 		let result = await fetch('/api/url', {
 			method: 'POST',
 			body: JSON.stringify({ url: url })
@@ -26,7 +26,7 @@
 		let oldTitle = dom?.querySelector('.main .section .ln-day-head p');
 		oldTitle.innerHTML = oldTitle?.innerHTML.replace(`${new Date(dateOldStyle).getDate()}. `, '');
 		return dom?.innerHTML;
-	};
+	}
 
 	let isNewStyle = $state(true);
 </script>
