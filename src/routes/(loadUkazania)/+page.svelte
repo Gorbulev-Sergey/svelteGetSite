@@ -69,10 +69,10 @@
 
 {#await getSite() then result}
 	<div
-		class="px-3 pt-3 pb-5 mb-5 my-text-wrap"
-		style="font-size:1.2em; line-height: 1.4em; font-weight: 400;"
+		class="px-3 pt-3 pb-5 mb-5 my-text-wrap my-font"
+		style="font-size:1.2em; line-height: 1.3em; font-weight: 400;"
 	>
-		{@html result?.replace('Богослужебные указания за', 'Богослужебные указания на')}
+		{@html result}
 	</div>
 {/await}
 
@@ -120,5 +120,13 @@
 	}
 	.my-primary-light-bg {
 		background-color: #7b6868;
+	}
+
+	.my-font {
+		font-family: 'Times New Roman', Times, serif;
+	}
+
+	:global(p) {
+		margin-bottom: 0 !important;
 	}
 </style>
