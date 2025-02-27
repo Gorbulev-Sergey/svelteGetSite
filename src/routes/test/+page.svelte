@@ -1,10 +1,12 @@
 <script lang="ts">
-	export function setColor() {
-		let e = document.querySelector('#text');
-		e.style.backgroundColor = 'blue';
-	}
+	import { onMount } from 'svelte';
+
+	let ukazania = $state('');
+
+	onMount(async () => {
+		ukazania = (await (await fetch('https://api.patriarchia.ru/v1/events/2025-01-02')).json())
+			.content;
+	});
 </script>
 
-<!-- svelte-ignore a11y_click_events_have_key_events -->
-<!-- svelte-ignore a11y_no_static_element_interactions -->
-<div id="text" on:click={() => setColor()}>Привет</div>
+{@html ukazania}

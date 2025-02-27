@@ -12,20 +12,13 @@
 		return date1.toISOString().slice(0, 10);
 	});
 
-	let url = $derived(`http://www.patriarchia.ru/bu/${date}/print.html`);
 	async function getSite() {
-		let result = await fetch('/api/url', {
-			method: 'POST',
-			body: JSON.stringify({ url: url })
-		});
-		let dom = new DOMParser()
-			.parseFromString(await result.text(), 'text/html')
-			.querySelector('.main');
-		dom?.querySelector('.main h1')?.remove();
-		dom?.querySelector('.main br')?.remove();
-		let oldTitle = dom?.querySelector('.main .section .ln-day-head p');
-		oldTitle.innerHTML = oldTitle?.innerHTML.replace(`${new Date(dateOldStyle).getDate()}. `, '');
-		return dom?.innerHTML;
+		let d = new Date(new Date(date).getTime() - 13 * 24 * 60 * 60 * 1000)
+			.toISOString()
+			.slice(0, 10);
+		let ukazania = (await (await fetch(`https://api.patriarchia.ru/v1/events/${d}`)).json())
+			.content;
+		return ukazania.replace(`${new Date(d).getDate()}. `, '');
 	}
 
 	let isNewStyle = $state(true);
